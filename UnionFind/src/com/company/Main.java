@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
         int n = 10;
 
-        unionFind = new UnionFind(n);
+        unionFind = new WeightedQuickUnion(n);
+//        unionFind = new UnionFind(n);
 //        unionFind = new QuickUnion(n);
 
         connect(0,1);

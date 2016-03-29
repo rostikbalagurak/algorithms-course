@@ -1,7 +1,7 @@
 package com.company;
 
 public class QuickUnion implements Union{
-    private int[] ids;
+    protected int[] ids;
 
     public QuickUnion(int n) {
         ids = new int[n];
@@ -13,14 +13,15 @@ public class QuickUnion implements Union{
         ids[getRoot(q)] = getRoot(p);
     }
 
-    private int getRoot(int i){
+    protected int getRoot(int i){
         while (i != ids[i]){
+            ids[i] = ids[ids[i]];
             i = ids[i];
         }
         return i;
     }
 
-    public boolean connected(int p, int q){
-        return getRoot(p) == getRoot(q);
+    public boolean connected(int first, int second){
+        return getRoot(first) == getRoot(second);
     }
 }
